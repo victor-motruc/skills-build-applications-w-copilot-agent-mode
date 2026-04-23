@@ -20,13 +20,30 @@ const Users = () => {
 	}, [baseUrl]);
 
 	return (
-		<div>
-			<h2>Users</h2>
-			<ul>
-				{users.map((u, i) => (
-					<li key={u.id || i}>{u.username} ({u.email})</li>
-				))}
-			</ul>
+		<div className="card shadow-sm mb-4">
+			<div className="card-body">
+				<h2 className="card-title mb-4 text-warning">Users</h2>
+				<div className="table-responsive">
+					<table className="table table-striped table-hover align-middle">
+						<thead className="table-light">
+							<tr>
+								<th>#</th>
+								<th>Username</th>
+								<th>Email</th>
+							</tr>
+						</thead>
+						<tbody>
+							{users.map((u, i) => (
+								<tr key={u.id || i}>
+									<td>{i + 1}</td>
+									<td>{u.username}</td>
+									<td>{u.email}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	);
 };

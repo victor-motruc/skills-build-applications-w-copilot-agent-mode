@@ -20,13 +20,30 @@ const Workouts = () => {
 	}, [baseUrl]);
 
 	return (
-		<div>
-			<h2>Workouts</h2>
-			<ul>
-				{workouts.map((w, i) => (
-					<li key={w.id || i}>{w.name} ({w.difficulty})</li>
-				))}
-			</ul>
+		<div className="card shadow-sm mb-4">
+			<div className="card-body">
+				<h2 className="card-title mb-4 text-danger">Workouts</h2>
+				<div className="table-responsive">
+					<table className="table table-striped table-hover align-middle">
+						<thead className="table-light">
+							<tr>
+								<th>#</th>
+								<th>Name</th>
+								<th>Difficulty</th>
+							</tr>
+						</thead>
+						<tbody>
+							{workouts.map((w, i) => (
+								<tr key={w.id || i}>
+									<td>{i + 1}</td>
+									<td>{w.name}</td>
+									<td>{w.difficulty}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	);
 };

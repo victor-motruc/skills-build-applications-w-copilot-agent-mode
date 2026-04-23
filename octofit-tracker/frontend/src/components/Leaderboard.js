@@ -20,13 +20,30 @@ const Leaderboard = () => {
 	}, [baseUrl]);
 
 	return (
-		<div>
-			<h2>Leaderboard</h2>
-			<ul>
-				{leaderboard.map((l, i) => (
-					<li key={l.id || i}>{l.team}: {l.points} pts</li>
-				))}
-			</ul>
+		<div className="card shadow-sm mb-4">
+			<div className="card-body">
+				<h2 className="card-title mb-4 text-success">Leaderboard</h2>
+				<div className="table-responsive">
+					<table className="table table-striped table-hover align-middle">
+						<thead className="table-light">
+							<tr>
+								<th>#</th>
+								<th>Team</th>
+								<th>Points</th>
+							</tr>
+						</thead>
+						<tbody>
+							{leaderboard.map((l, i) => (
+								<tr key={l.id || i}>
+									<td>{i + 1}</td>
+									<td>{l.team}</td>
+									<td>{l.points}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</div>
 		</div>
 	);
 };
